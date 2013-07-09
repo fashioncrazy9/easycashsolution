@@ -1,0 +1,35 @@
+
+<div class="test-div">
+	<h2> Add Book</h2>
+
+	<form novalidate class="simple-form">
+		<legend>Add new books</legend>
+		Name: <input type="text" id="name" ng-model="b.bookName"/> <br/>
+		Author: <input type="text" id="author" ng-model="b.author"/> <br/>
+		<button ng-click="addBook(b)">Save</button>
+	</form>
+	<br>
+	<div id="msg"></div>
+	<div id="inserted"></div>
+	<br/>
+	<pre id="json"></pre>
+</div>
+	
+ <br/>
+ <div class="test-div">
+ 	<button ng-click="getBooks()">Search</button>
+	<br>
+	<h2> List Books</h2>
+		<div >
+			<ul ng-repeat="book in books">
+			    <li>
+			      Name: <strong>{{book._data.name}}</strong>
+			    </li>		        
+		      	<p>Author: {{book._data.author}}</p>	
+		      	<p>Date Created: {{book._data.created | date:'MM/dd/yyyy  h:mma'}}</p>	   
+		  	</ul>
+		</div>		
+	<br>
+	<div id="response"></div>
+ </div>
+
