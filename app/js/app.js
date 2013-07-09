@@ -2,7 +2,7 @@
 
 /* App Module */
 
-angular.module('phonecat', ['phonecatFilters']).
+angular.module('ecs', ['ecsFilters']).
   config(['$routeProvider', function($routeProvider) {
   $routeProvider.
   		when('/login', {templateUrl: 'partials/login.html',   controller: LoginController}).
