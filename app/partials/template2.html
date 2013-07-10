@@ -1,0 +1,20 @@
+ <div ng-init="friends = [{name:'John', phone:'555-1276'},
+                             {name:'Mary', phone:'800-BIG-MARY'},
+                             {name:'Mike', phone:'555-4321'},
+                             {name:'Adam', phone:'555-5678'},
+                             {name:'Julie', phone:'555-8765'}]"></div>
+    
+   
+    Any: <input ng-model="search.$"> <br>
+    Name only <input ng-model="search.name"><br>
+    Phone only <input ng-model="search.phone"><br>
+    <table id="searchObjResults">
+      <tr><th>Name</th><th>Phone</th></tr>
+      <tr ng-repeat="friend in friends | filter:search">
+        <td>{{friend.name}}</td>
+        <td>{{friend.phone}}</td>
+      </tr>
+    </table>
+
+    Limit {{numbers}} to: <input type="integer" ng-model="limit">
+    <p>Output: {{ numbers | limitTo:limit }}</p>

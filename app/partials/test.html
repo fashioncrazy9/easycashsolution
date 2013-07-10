@@ -1,0 +1,22 @@
+<div class="test-div">
+	<a ng-href="http://www.google.com.vn">Google</a><br>
+	<input type="checkbox" ng-model="isDisabled" ng-true-value="true" ng-false-value="false"> 
+	<p>{{isDisabled}}</p>
+	<div>
+ 		<button disabled="none">Disabled</button>
+	</div>
+	Show: <span ng-show="isDisabled">I show up when you checkbox is checked?</span> <br/>
+    Hide: <span ng-hide="isDisabled">I hide when you checkbox is checked?</span>
+
+     <div ng-include src="template"></div>
+     <div ng-include src="template2"></div>
+
+</div>
+<div>
+	<form ng-submit="submit()">
+      Enter text and hit enter:
+      <input type="text" ng-model="text" name="text" />
+      <input type="submit" id="submit" value="Submit" />
+      <pre>list={{list}}</pre>
+    </form>
+</div>

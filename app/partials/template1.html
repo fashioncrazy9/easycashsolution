@@ -1,0 +1,32 @@
+<a href="http://localhost:8000/#/login">login </a>
+
+<form name="myForm">
+      List: <input name="namesInput" ng-model="names" ng-list required>
+      <span class="error" ng-show="myForm.list.$error.required">
+        Required!</span>
+      <tt>names = {{names}}</tt><br/>
+      <tt>myForm.namesInput.$valid = {{myForm.namesInput.$valid}}</tt><br/>
+      <tt>myForm.namesInput.$error = {{myForm.namesInput.$error}}</tt><br/>
+      <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
+      <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br/>
+</form>
+
+ Check me check multiple: <input type="checkbox" ng-model="checked"><br/>
+    <select id="select" ng-multiple="checked">
+      <option>Misko</option>
+      <option>Igor</option>
+      <option>Vojta</option>
+      <option>Di</option>
+    </select>	
+
+    <input type="text" ng-readonly="checked" value="select checkbox to readonly for me"/>
+    <!-- ng-style -->
+    <div> 
+	    <input type="button" value="set" ng-click="myStyle={color:'red'}">
+	    <input type="button" value="clear" ng-click="myStyle={}">
+	    <br/>
+	    <span ng-style="myStyle">Sample Text</span>
+	    <pre>myStyle={{myStyle}}</pre>
+	</div>
+
+	

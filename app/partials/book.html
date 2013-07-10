@@ -26,7 +26,14 @@
 			      Name: <strong>{{book._data.name}}</strong>
 			    </li>		        
 		      	<p>Author: {{book._data.author}}</p>	
+		      	No filter: {{book._data.author}}<br>
+			    Reverse: {{book._data.author|reverse}}<br>
+			    Reverse + uppercase: {{book._data.author|reverse:true}}<br>
 		      	<p>Date Created: {{book._data.created | date:'MM/dd/yyyy  h:mma'}}</p>	   
+
+		      	<div ng-init="scope = { isDisabled: false }">
+ 				<button disabled="{{scope.isDisabled}}">Disabled</button>
+				</div>
 		  	</ul>
 		</div>		
 	<br>

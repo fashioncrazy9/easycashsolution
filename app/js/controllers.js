@@ -44,7 +44,7 @@ function LoginController($scope) {
         $("#response").html('<pre>'+output+'</pre>');
         client.setToken(client.token);
         //redriect view
-        location.href ="http://localhost:8000/#/books";
+        location.href ="http://localhost:8000/#/test";
       }
     });
   };  
@@ -87,14 +87,35 @@ function BookController($scope) {
               obj.set("name", book.bookName);
               obj.set("author", book.author);
               obj.save();
-               $('#msg').append("<p>Successful!</p>");
-              $('#inserted').append("<p>"+obj.get("name")+" / "+obj.get("author")+"</p> ");
+              //  $('#msg').append("<p>Successful!</p>");
+              // $('#inserted').append("<p>"+obj.get("name")+" / "+obj.get("author")+"</p> ");
 
-              $('#json').append(JSON.stringify(obj.get()));
+              // $('#json').append(JSON.stringify(obj.get()));
             }
         });
     };
 
    
-} // end user controller
+} // end Book controller
+
+
+function TestController($scope) {
+    $scope.isDisabled = false;  
+    $scope.names = ['igor', 'misko', 'vojta'];
+    $scope.template = "partials/template1.html";
+    $scope.template2 = "partials/template2.html";
+
+    $scope.list = [];
+    $scope.text = 'hello';
+    $scope.submit = function() {
+        if (this.text) {
+            this.list.push(this.text);
+            this.text = '';
+        }
+  };
+
+   $scope.numbers = [1,2,3,4,5,6,7,8,9];
+  $scope.limit = 3;
+
+} // end Test controller
 
