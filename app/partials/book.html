@@ -4,9 +4,11 @@
 
 	<form novalidate class="simple-form">
 		<legend>Add new books</legend>
-		Name: <input type="text" id="name" ng-model="b.bookName"/> <br/>
-		Author: <input type="text" id="author" ng-model="b.author"/> <br/>
-		<button ng-click="addBook(b)">Save</button>
+		<input type="hidden" ng-model="uuid"/>
+		Name: <input type="text" id="name" ng-model="bookName"/> <br/>
+		Author: <input type="text" id="author" ng-model="author"/> <br/>
+		<button ng-click="addBook(bookName, author)">Save</button>
+		<button ng-click="updateBook(bookName, author)">Update</button>
 	</form>
 	<br>
 	<div id="msg"></div>
@@ -20,21 +22,28 @@
  	<button ng-click="getBooks()">Search</button>
 	<br>
 	<h2> List Books</h2>
-		<div >
-			<ul ng-repeat="book in books">
-			    <li>
-			      Name: <strong>{{book._data.name}}</strong>
-			    </li>		        
-		      	<p>Author: {{book._data.author}}</p>	
-		      	No filter: {{book._data.author}}<br>
-			    Reverse: {{book._data.author|reverse}}<br>
-			    Reverse + uppercase: {{book._data.author|reverse:true}}<br>
-		      	<p>Date Created: {{book._data.created | date:'MM/dd/yyyy  h:mma'}}</p>	   
-
-		      	<div ng-init="scope = { isDisabled: false }">
- 				<button disabled="{{scope.isDisabled}}">Disabled</button>
-				</div>
-		  	</ul>
+		<div>			
+	  	<table class="table table-striped">
+	  		<thead>
+		  		<tr>
+		  			<th>UUID</th>
+		  			<th>Name</th>
+		  			<th>Author</th>
+		  			<th>Date Created</th>
+		  			<th>Action</th>
+		  		</tr>
+		  	</thead>
+		  	<tbody>
+		  		<tr ng-repeat="book in books">
+		  			<td><a href="" ng-click="selectedBook(book)">{{book._data.uuid}}</a></td>
+		  			<td><strong>{{book._data.name}}</strong></td>
+		  			<td>{{book._data.author}}</td>
+		  			<td>{{book._data.created}}</td>
+		  			<td><a href="" ng-click="deleteBook(book)">Delete</a></td>
+		  		</tr>
+		  	</tbody>
+	  	</table>
+  	
 		</div>		
 	<br>
 	<div id="response"></div>
